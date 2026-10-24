@@ -6,6 +6,9 @@ export const SITE_TITLE =
 export const PHONE = "010-4075-5865";
 export const PHONE_TEL = "tel:+821040755865";
 
+/** toy.sparkinkwell.com 카카오톡 채널(plusfriends _bDUQxj) */
+export const KAKAO_CHAT_URL = "https://pf.kakao.com/_bDUQxj/chat";
+
 export const BUSINESS = {
   name: "온유독",
   nameEn: "ONYUDOK",
