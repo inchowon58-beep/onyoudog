@@ -1,0 +1,8 @@
+node_modules
+dist
+.verify
+.env
+.env.*
+scripts/gemini.raw.txt
+.DS_Store
+.vercel

@@ -1,0 +1,28 @@
+{
+  "name": "onyudok",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "build:seo": "vite build && node scripts/generate-seo-sitemap.mjs && node scripts/prerender-seo.mjs",
+    "preview": "vite preview",
+    "generate": "node scripts/generate-copy.mjs",
+    "generate:seo-copy": "node scripts/generate-seo-copy.mjs",
+    "generate:region-seo": "node scripts/generate-region-seo-copy.mjs",
+    "generate:rebrand-home": "node scripts/generate-rebrand-home.mjs",
+    "generate:philosophy-images": "node scripts/generate-philosophy-images.mjs",
+    "generate:naver-webdocs": "node scripts/generate-naver-webdocs.mjs"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.28.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "puppeteer": "^24.43.1",
+    "vite": "^5.4.11"
+  }
+}
