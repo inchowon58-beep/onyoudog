@@ -3,6 +3,7 @@ import { Chrome } from "./components/Chrome.jsx";
 import { Home } from "./pages/Home.jsx";
 import { BreedIndex, PetDetail, PetList } from "./pages/PetPages.jsx";
 import { Consult, ContentPage, GuideDetail, GuideIndex, NotFound, PhilosophyDetail, Place, QnA, Reviews, SearchPage } from "./pages/InfoPages.jsx";
+import { LocalPlacesPage } from "./pages/LocalPlacesPage.jsx";
 import { RegionLinksPage } from "./pages/RegionLinksPage.jsx";
 import { SeoLanding } from "./pages/SeoLanding.jsx";
 import { content } from "./data/index.js";
@@ -36,6 +37,7 @@ export default function App() {
         <Route path="/search" element={<SearchPage />} />
         <Route path="/consult" element={<Consult />} />
         <Route path="/local-links" element={<RegionLinksPage />} />
+        <Route path="/local-places" element={<LocalPlacesPage />} />
         <Route path="/:keyword/:city" element={<SeoLanding />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

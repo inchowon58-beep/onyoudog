@@ -6,14 +6,15 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "build:seo": "vite build && node scripts/generate-seo-sitemap.mjs && node scripts/prerender-seo.mjs",
+    "build:seo": "node scripts/build-local-seo-source.mjs && vite build && node scripts/generate-seo-sitemap.mjs && node scripts/prerender-seo.mjs",
     "preview": "vite preview",
     "generate": "node scripts/generate-copy.mjs",
     "generate:seo-copy": "node scripts/generate-seo-copy.mjs",
     "generate:region-seo": "node scripts/generate-region-seo-copy.mjs",
     "generate:rebrand-home": "node scripts/generate-rebrand-home.mjs",
     "generate:philosophy-images": "node scripts/generate-philosophy-images.mjs",
-    "generate:naver-webdocs": "node scripts/generate-naver-webdocs.mjs"
+    "generate:naver-webdocs": "node scripts/generate-naver-webdocs.mjs",
+    "build:local-seo": "node scripts/build-local-seo-source.mjs"
   },
   "dependencies": {
     "react": "^18.3.1",

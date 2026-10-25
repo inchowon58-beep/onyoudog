@@ -19,3 +19,11 @@ export function keywordMetaForRegionPage(page) {
     petType: page.petType || "puppy",
   };
 }
+
+export function keywordMetaForSeoPage(page) {
+  if (page.kind === "local") {
+    const meta = findSeoKeyword(page.keyword);
+    return meta || { slug: page.keyword, label: page.keyword, animal: "반려동물", petType: page.petType };
+  }
+  return keywordMetaForRegionPage(page);
+}

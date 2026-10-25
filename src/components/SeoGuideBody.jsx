@@ -40,16 +40,24 @@ function BreedLinks({ breeds, type, entries }) {
 }
 
 export function SeoGuideBody({ page, keywordMeta, sections, paragraphs, faqs, currentPath }) {
-  const subAreas = page.subAreas || [];
-  const regionName = page.regionPrefix || page.keyword.replace(/강아지분양$/, "");
+  const isLocal = page.kind === "local";
+  const subAreas = isLocal ? [] : page.subAreas || [];
+  const regionName = isLocal
+    ? `${page.placeLabel}(${page.regionGroup})`
+    : page.regionPrefix || page.keyword.replace(/강아지분양$/, "");
 
   return (
     <article className="seo-blog__card seo-guide">
       <h2>
-        {regionName} {keywordMeta.label} · 강아지입양·애견분양 상담 온유독
+        {isLocal
+          ? `${page.placeLabel} ${keywordMeta.label} · 온유독 상담`
+          : `${regionName} ${keywordMeta.label} · 강아지입양·애견분양 상담 온유독`}
       </h2>
       <p className="seo-guide__lede">
-        {paragraphs[0] || `${page.coverage} 권역에서 ${keywordMeta.label}을 알아보실 때 견종·묘종 특성과 상담 가능 일정을 함께 확인하는 것이 좋습니다.`}
+        {paragraphs[0] ||
+          (isLocal
+            ? `${page.regionGroup} ${page.placeLabel}에서 ${keywordMeta.label}을 검색하실 때 견종·묘종 특성과 상담 일정을 함께 확인하는 것이 좋습니다.`
+            : `${page.coverage} 권역에서 ${keywordMeta.label}을 알아보실 때 견종·묘종 특성과 상담 가능 일정을 함께 확인하는 것이 좋습니다.`)}
       </p>
 
       {sections.length
@@ -115,22 +123,32 @@ export function SeoGuideBody({ page, keywordMeta, sections, paragraphs, faqs, cu
         ))}
       </div>
 
-      <div className="seo-guide__block">
-        <h3>전국 권역 강아지분양 안내</h3>
-        <p className="seo-region-picker__hint">
-          아래 50개 권역 페이지에서 지역별 안내 글을 확인할 수 있습니다. 현재 페이지:{" "}
-          <Link to={currentPath}>{page.title}</Link>
-        </p>
-        <ul className="regional-seo-fold__list regional-seo-fold__list--in-guide">
-          {SEO_REGION_PAGES.map((item) => (
-            <li key={item.id}>
-              <Link to={seoRegionPagePath(item)} className={item.id === page.id ? "is-current" : undefined}>
-                {item.title}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
+      {isLocal ? (
+        <div className="seo-guide__block">
+          <p className="seo-region-picker__hint">
+            <Link to="/local-links">전국 강아지분양 안내(50권역)</Link>
+            {" · "}
+            <Link to="/local-places">세부 지역 전체 목록</Link>
+          </p>
+        </div>
+      ) : (
+        <div className="seo-guide__block">
+          <h3>전국 권역 강아지분양 안내</h3>
+          <p className="seo-region-picker__hint">
+            아래 50개 권역 페이지에서 지역별 안내 글을 확인할 수 있습니다. 현재 페이지:{" "}
+            <Link to={currentPath}>{page.title}</Link>
+          </p>
+          <ul className="regional-seo-fold__list regional-seo-fold__list--in-guide">
+            {SEO_REGION_PAGES.map((item) => (
+              <li key={item.id}>
+                <Link to={seoRegionPagePath(item)} className={item.id === page.id ? "is-current" : undefined}>
+                  {item.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
 
       <p className="seo-bottom__note">
         {page.title} 문의는 온유독 상담으로 연결됩니다. 전화 <PhoneLink />

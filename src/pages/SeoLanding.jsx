@@ -4,25 +4,29 @@ import { HomeMainContent } from "../components/HomeMainContent.jsx";
 import { SeoGuideBody } from "../components/SeoGuideBody.jsx";
 import { SeoPhotoStrip } from "../components/SeoPhotoStrip.jsx";
 import { seoFaqs, seoParagraphs, seoSections } from "../data/seo/content.js";
-import { keywordMetaForRegionPage } from "../data/seo/keywords.js";
-import { findSeoRegionPage, seoRegionPagePath } from "../data/seo/regions.js";
+import { keywordMetaForSeoPage } from "../data/seo/keywords.js";
+import { findSeoPage, seoRegionPagePath } from "../data/seo/regions.js";
+import { seoLocalPagePath } from "../data/seo/local-pages.js";
 import { SITE_URL } from "../data/site.js";
 import { useSeoDocument } from "../hooks/useSeoDocument.js";
 import { pickSeoBreeds } from "../utils/seoBreedPick.js";
 
 export function SeoLanding() {
   const { keyword, city: scope } = useParams();
-  const page = findSeoRegionPage(keyword || "", scope || "");
+  const page = findSeoPage(keyword || "", scope || "");
   if (!page) return <Navigate to="/" replace />;
 
-  const keywordMeta = keywordMetaForRegionPage(page);
+  const keywordMeta = keywordMetaForSeoPage(page);
   const paragraphs = seoParagraphs(page, keywordMeta);
   const sections = seoSections(page);
   const faqs = seoFaqs(page, keywordMeta);
-  const path = seoRegionPagePath(page);
+  const path = page.kind === "local" ? seoLocalPagePath(page) : seoRegionPagePath(page);
   const url = `${SITE_URL}${path}`;
   const title = `${page.title} | 온유독`;
-  const description = `${page.coverage}. ${page.title} 상담 안내. ${paragraphs[0]?.slice(0, 100) || ""}…`;
+  const description =
+    page.kind === "local"
+      ? `${page.regionGroup} ${page.placeLabel} ${keywordMeta.label} 상담. ${paragraphs[0]?.slice(0, 100) || ""}…`
+      : `${page.coverage}. ${page.title} 상담 안내. ${paragraphs[0]?.slice(0, 100) || ""}…`;
 
   const breeds = pickSeoBreeds(page.id, keywordMeta.petType, 5);
   const ogImages = breeds.map((b) => b.cover);

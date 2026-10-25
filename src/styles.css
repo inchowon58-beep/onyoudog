@@ -720,6 +720,84 @@ main > .section:nth-of-type(4n) { background: #e5efe7; }
 }
 .region-links-page__list a:hover { color: var(--accent); }
 .region-links-page .pager { margin-top: 24px; }
+.local-places-page__intro {
+  margin: 0 0 20px;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--muted);
+}
+.local-places-page__intro a { color: var(--accent-ink); font-weight: 650; }
+.local-places-page__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.local-places-page__filters select,
+.local-places-page__search input {
+  min-height: 44px;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--paper);
+  font-size: 14px;
+}
+.local-places-page__search { flex: 1; min-width: min(100%, 220px); }
+.local-places-page__search input { width: 100%; }
+.local-places-page__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 12px;
+}
+.local-places-page__list > li {
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--paper);
+}
+.local-places-page__place {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 12px;
+  margin-bottom: 8px;
+}
+.local-places-page__place strong { font-size: 16px; }
+.local-places-page__region { font-size: 13px; color: var(--muted); }
+.local-places-page__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+}
+.local-places-page__links a {
+  font-size: 13px;
+  color: var(--accent-ink);
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--bg) 70%, var(--paper));
+  border: 1px solid var(--line);
+}
+.local-places-page__links a:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.local-places-page__pager {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 28px;
+}
+.local-places-page__pager button {
+  min-height: 40px;
+  padding: 0 16px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+}
+.local-places-page__pager button:disabled { opacity: 0.45; cursor: not-allowed; }
 @media (max-width: 720px) {
   .region-links-page__list { grid-template-columns: 1fr; }
 }

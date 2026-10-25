@@ -30,10 +30,17 @@ export function fillSeoText(template, regionLabel, keywordLabel, animal) {
     .replaceAll("{매장주소}", BUSINESS.address);
 }
 
+function regionLabelForPage(page) {
+  if (page.kind === "local") {
+    return `${page.regionGroup} ${page.placeLabel}`.trim();
+  }
+  return page.regionPrefix || page.keyword.replace("강아지분양", "");
+}
+
 function fallbackParagraphs(page, keyword) {
   const seed = hashSeed(`${page.id}:${keyword.label}`);
   const picks = pickFourIndices(seed, copy.paragraphs.length);
-  const regionLabel = page.regionPrefix || page.keyword.replace("강아지분양", "");
+  const regionLabel = regionLabelForPage(page);
   return picks.map((index) =>
     fillSeoText(copy.paragraphs[index], regionLabel, keyword.label, keyword.animal),
   );
@@ -56,7 +63,8 @@ export function seoSections(page) {
 export function seoFaqs(page, keyword) {
   const entry = regionPages[page.id];
   if (entry?.faqs?.length) return entry.faqs;
-  const regionLabel = page.regionPrefix || page.title;
+  const regionLabel =
+    page.kind === "local" ? `${page.placeLabel}(${page.regionGroup})` : page.regionPrefix || page.title;
   const { label, animal } = keyword;
   return [
     [
