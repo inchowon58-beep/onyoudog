@@ -71,11 +71,17 @@ export function Chrome({ children }) {
 
       <footer className="site-footer">
         <div className="wrap">
-          <p>© {new Date().getFullYear()} 온유독 · {BUSINESS.nameEn}</p>
+          <p className="site-footer__brand">{BUSINESS.legalName}</p>
+          <p>대표자 : {BUSINESS.owner}</p>
+          <p>주소 : {BUSINESS.address}</p>
           <p>
-            대표 {BUSINESS.owner} · <a className="phone-link" href={PHONE_TEL}>{PHONE}</a>
+            문의 : <a className="phone-link" href={PHONE_TEL}>{PHONE}</a>
           </p>
-          <p className="site-footer__addr">{BUSINESS.address}</p>
+          <p>사업자 번호 : {BUSINESS.businessNumber}</p>
+          <p>허가번호 : {BUSINESS.licenseNumber}</p>
+          <p className="site-footer__copy">
+            COPYRIGHT(C){BUSINESS.legalName} ALL RIGHTS RESERVED
+          </p>
           <FooterSeoLinks />
         </div>
       </footer>

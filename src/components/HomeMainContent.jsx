@@ -170,7 +170,7 @@ export function HomeMainContent({ embedded = false }) {
 
             <Link key={breed.slug} to={`/kittens/breed/${breed.slug}`}>
 
-              <img src={imageUrl(breed.folder, 1)} alt="" />
+              <img src={imageUrl(breed.folder, 1, breed)} alt="" />
 
               <strong>{breed.en}</strong>
 
@@ -194,7 +194,7 @@ export function HomeMainContent({ embedded = false }) {
 
             <Link key={breed.slug} to={`/puppies/breed/${breed.slug}`}>
 
-              <img src={imageUrl(breed.folder, 1)} alt="" />
+              <img src={imageUrl(breed.folder, 1, breed)} alt="" />
 
               <strong>{breed.en}</strong>
 

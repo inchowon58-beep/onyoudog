@@ -14,7 +14,8 @@
     "generate:rebrand-home": "node scripts/generate-rebrand-home.mjs",
     "generate:philosophy-images": "node scripts/generate-philosophy-images.mjs",
     "generate:naver-webdocs": "node scripts/generate-naver-webdocs.mjs",
-    "build:local-seo": "node scripts/build-local-seo-source.mjs"
+    "build:local-seo": "node scripts/build-local-seo-source.mjs",
+    "import:agamong-pets": "node scripts/import-agamong-pets.mjs"
   },
   "dependencies": {
     "react": "^18.3.1",
@@ -24,6 +25,7 @@
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.4",
     "puppeteer": "^24.43.1",
+    "sharp": "^0.35.5",
     "vite": "^5.4.11"
   }
 }

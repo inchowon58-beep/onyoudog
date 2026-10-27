@@ -654,6 +654,8 @@ main > .section:nth-of-type(4n) { background: #e5efe7; }
 .site-footer { padding: 28px 0 108px; background: #1a1410; color: rgba(255, 248, 239, 0.62); font-size: 14px; text-align: center; }
 .site-footer p, .site-footer .photo-note { margin: 6px 0 0; color: rgba(255, 248, 239, 0.62); }
 .site-footer a { color: #fff8ef; }
+.site-footer__brand { margin-top: 0 !important; font-weight: 700; color: rgba(255, 248, 239, 0.78); }
+.site-footer__copy { margin-top: 14px !important; font-size: 12px; letter-spacing: 0.02em; }
 .site-footer__addr { margin-bottom: 0 !important; }
 .footer-seo-links { margin-top: 12px; text-align: center; }
 .footer-seo-links__btn {

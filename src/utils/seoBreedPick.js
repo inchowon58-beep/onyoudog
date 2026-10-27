@@ -20,7 +20,7 @@ export function pickSeoBreeds(pageKey, petType, count = 5) {
   }
   return picks.map((breed, index) => ({
     ...breed,
-    cover: imageUrl(breed.folder, (index % breed.take) + 1),
+    cover: imageUrl(breed.folder, (index % breed.take) + 1, breed),
     href: petType === "kitten" ? `/kittens/breed/${breed.slug}` : `/puppies/breed/${breed.slug}`,
   }));
 }

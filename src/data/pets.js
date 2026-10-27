@@ -73,8 +73,8 @@ function buildPets() {
         premium,
         kind,
         index,
-        images: [0, 1, 2].map((step) => imageUrl(breed.folder, start + step)),
-        cover: imageUrl(breed.folder, start),
+        images: [0, 1, 2].map((step) => imageUrl(breed.folder, start + step, breed)),
+        cover: imageUrl(breed.folder, start, breed),
       });
       cursor += 1;
       seq += 1;

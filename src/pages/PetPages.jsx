@@ -118,7 +118,7 @@ export function BreedIndex({ type }) {
       <div className="breed-index">
         {breeds.map((breed) => (
           <Link key={breed.slug} to={`${type === "kitten" ? "/kittens" : "/puppies"}/breed/${breed.slug}`}>
-            <img src={imageUrl(breed.folder, 1)} alt="" />
+            <img src={imageUrl(breed.folder, 1, breed)} alt="" />
             <div>
               <strong>{breed.ko}</strong>
               <span>{breed.en}</span>

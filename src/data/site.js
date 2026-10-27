@@ -6,17 +6,20 @@ export const SITE_TITLE =
 export const PHONE = "010-4075-5865";
 export const PHONE_TEL = "tel:+821040755865";
 
-/** toy.sparkinkwell.com 카카오톡 채널(plusfriends _bDUQxj) */
-export const KAKAO_CHAT_URL = "https://pf.kakao.com/_bDUQxj/chat";
+/** 인천강아지분양 아가몽 카카오톡 채널 */
+export const KAKAO_CHAT_URL = "https://pf.kakao.com/_lWwxkG/chat";
 
 export const BUSINESS = {
   name: "온유독",
+  legalName: "인천 강아지분양 아가몽",
   nameEn: "ONYUDOK",
-  owner: "민동수",
+  owner: "백인혜",
   phone: PHONE,
-  address: "인천 부평구 부흥로327번길 13 1층",
+  address: "인천 부평구 부평동 399-24 1층",
+  businessNumber: "873-94-02012",
+  licenseNumber: "3540000-045-2025-0002",
   addressDetail:
-    "인천 부평구 부흥로327번길 13 1층에서 예약 상담을 받습니다. 전국 권역 일정에 맞춰 안심 배송도 안내합니다.",
+    "인천 부평구 부평동 399-24 1층에서 예약 상담을 받습니다. 전국 권역 일정에 맞춰 안심 배송도 안내합니다.",
 };
 
 export const REGIONS = [
@@ -88,9 +91,9 @@ export const KEYWORDS = [
   { label: "말티즈", to: "/puppies/breed/maltese" },
   { label: "토이푸들", to: "/puppies/breed/toypoodle" },
   { label: "비숑프리제", to: "/puppies/breed/bichon" },
-  { label: "말티푸", to: "/puppies/breed/maltipoo" },
   { label: "포메라니안", to: "/puppies/breed/pomeranian" },
-  { label: "시츄", to: "/puppies/breed/shihtzu" },
+  { label: "프렌치불독", to: "/puppies/breed/frenchie" },
+  { label: "닥스훈트", to: "/puppies/breed/dachshund" },
   { label: "브리티시숏헤어", to: "/kittens/breed/british" },
   { label: "먼치킨", to: "/kittens/breed/munchkin" },
 ];
